@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+const start = document.querySelector('.start-btn');
+
+start.addEventListener('click', () => {
     const grid = document.querySelector('.grid');
     const doodler = document.createElement('div');
     let doodlerLeftSpace;
@@ -15,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let leftTimerId;
     let rightTimerId;
     let score = 0;
+
+    grid.innerHTML = '';
 
     const createDoodler = () => {
         grid.appendChild(doodler);
@@ -135,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 doodlerLeftSpace +=1;
                 doodler.style.left = doodlerLeftSpace + 'px';
             } else moveLeft();
-        }, 8)
+        }, 6)
     }
 
     const moveLeft = () => {
@@ -152,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 doodlerLeftSpace -=1;
                 doodler.style.left = doodlerLeftSpace + 'px';
             } else moveRight();
-        }, 8)
+        }, 6) 
     }
     
     const moveStraight = () => {

@@ -1,15 +1,18 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: #020024;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(4%, #020024), color-stop(51%, #090979), to(#00d4ff));
   background: linear-gradient(180deg, #020024 4%, #090979 51%, #00d4ff 100%);
@@ -41,5 +44,35 @@ body {
   height: 15px;
   background: url("../images/platform.png");
   position: absolute;
+}
+
+.start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 500px;
+}
+
+.start .start-btn {
+  width: 180px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  font-weight: 600;
+}
+
+.start .start-btn:hover {
+  background: lightblue;
+}
+
+.change {
+  background-color: brown;
+  width: 500px;
 }
 /*# sourceMappingURL=style.css.map */

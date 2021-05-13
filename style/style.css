@@ -8,20 +8,22 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  height: 100vh;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   background: #020024;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(4%, #020024), color-stop(51%, #090979), to(#00d4ff));
   background: linear-gradient(180deg, #020024 4%, #090979 51%, #00d4ff 100%);
 }
 
 button {
-  width: 180px;
-  height: 50px;
-  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
   border: none;
   outline: none;
   -webkit-transition: all 0.5s ease;
@@ -33,11 +35,22 @@ button:hover {
   background: lightblue;
 }
 
-.grid {
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  width: 66%;
+}
+
+.wrapper .grid {
   padding: 0;
   margin: 0;
   width: 400px;
-  height: 600px;
+  height: 100%;
   background: url("../images/moon-back.png");
   background-size: cover;
   position: relative;
@@ -45,7 +58,7 @@ button:hover {
   text-align: center;
 }
 
-.grid .doodler {
+.wrapper .grid .doodler {
   width: 74px;
   height: 85px;
   background: url("../images/doodler-guy.png");
@@ -54,24 +67,14 @@ button:hover {
   position: absolute;
 }
 
-.grid .platform {
+.wrapper .grid .platform {
   width: 85px;
   height: 15px;
   background: url("../images/platform.png");
   position: absolute;
 }
 
-.start {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 500px;
-}
-
-.change {
+.wrapper .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,9 +90,21 @@ button:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  justify-self: end;
 }
 
-.change .change-character {
+.wrapper .menu .start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 500px;
+  padding-bottom: 10px;
+}
+
+.wrapper .menu .change-character {
   padding-bottom: 10px;
 }
 /*# sourceMappingURL=style.css.map */

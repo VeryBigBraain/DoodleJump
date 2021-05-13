@@ -7,69 +7,81 @@
 
 body {
     display: flex;
-    justify-content: space-around;
+    height: 100vh;
     align-items: center;
+    justify-content: flex-end;
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,1) 4%, rgba(9,9,121,1) 51%, rgba(0,212,255,1) 100%);
 }
+
 button {
-        width: 180px;
-        height: 50px;
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        transition: all 0.5s ease;
-        font-weight: 600;
-        &:hover {
-            background: lightblue;
+    width: 150px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    transition: all 0.5s ease;
+    font-weight: 600;
+    &:hover {
+        background: lightblue;
+    }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 66%;
+
+    .grid {
+        padding: 0;
+        margin: 0;
+        width: 400px;
+        height: 100%;
+        background: url('../images/moon-back.png');
+        background-size: cover;
+        position: relative;
+        font-size: 200px;
+        text-align: center;
+    
+        .doodler {
+            width: 74px;
+            height: 85px;
+            background: url('../images/doodler-guy.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+        .platform {
+            width: 85px;
+            height: 15px;
+            background: url('../images/platform.png');
+            position: absolute;
         }
     }
-
-.grid {
-    padding: 0;
-    margin: 0;
-    width: 400px;
-    height: 600px;
-    background: url('../images/moon-back.png');
-    background-size: cover;
-    position: relative;
-    font-size: 200px;
-    text-align: center;
-
-    .doodler {
-        width: 74px;
-        height: 85px;
-        background: url('../images/doodler-guy.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        position: absolute;
-    }
-    .platform {
-        width: 85px;
-        height: 15px;
-        background: url('../images/platform.png');
-        position: absolute;
+    
+    .menu {
+        display: flex;
+        width: 500px;
+        height: 600px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-self: end;
+    
+        .start {
+            display: flex;
+            justify-content: center;
+            width: 500px;
+            padding-bottom: 10px; 
+        }
+        .change-character {
+            padding-bottom: 10px; 
+        }
     }
 }
 
-.start {
-    display: flex;
-    justify-content: center;
-    width: 500px;
-}
 
-.change {
-    display: flex;
-    width: 500px;
-    height: 600px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .change-character {
-        padding-bottom: 10px; 
-    }
-}
 
 
 

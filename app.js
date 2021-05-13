@@ -32,7 +32,7 @@ start.addEventListener('click', () => {
     let startPoint = 150;
     let doodlerBottomSpace = startPoint;
     let isGameOver = false; 
-    let platformCount = 5;
+    let platformCount = 6;
     let platforms = [];
     let upTimerId;
     let downTimerId;
@@ -71,7 +71,7 @@ start.addEventListener('click', () => {
     
     const createPlatforms = () => {
         for (let i = 0; i < platformCount; i++) {
-            let platformGap = 600 / platformCount;
+            let platformGap = 700 / platformCount;
             let newPlatBottom = 100 + i * platformGap;
             let newPlatform = new Platform(newPlatBottom);
             platforms.push(newPlatform);
@@ -92,7 +92,7 @@ start.addEventListener('click', () => {
                     platforms.shift();
                     ++score;
                     // Add new top platform
-                    let newPlatform = new Platform(600);
+                    let newPlatform = new Platform(700);
                     platforms.push(newPlatform);
                 }
             })
@@ -216,7 +216,7 @@ start.addEventListener('click', () => {
             document.addEventListener('keydown', control);
         }
     }
-    // attach to button
+    
     start();
 })
 

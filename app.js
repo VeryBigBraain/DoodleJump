@@ -1,4 +1,29 @@
 const start = document.querySelector('.start-btn');
+const changeClothes = document.querySelector('.change-character__btn');
+const changeBackground = document.querySelector('.change-background__btn');
+const origBackgroundUrl = '../images/orig-back.png';
+const moonBackgroundUrl = '../images/moon-back.png';
+const moonPersUrl = '../images/ninja.png';
+const origPersUrl = '../images/doodler-guy.png';
+let persPic = `url("${moonPersUrl}")`;
+
+let backPic = document.querySelector('.grid');
+
+backPic.style.backgroundImage = `url("${moonBackgroundUrl}")`;
+
+// Change clothes
+changeClothes.addEventListener('click', () => {
+    persPic = persPic === `url("${moonPersUrl}")`   
+        ? `url("${origPersUrl}")` 
+        : `url("${moonPersUrl}")`;
+})
+
+// Change back
+changeBackground.addEventListener('click', () => {
+    backPic.style.backgroundImage = backPic.style.backgroundImage === `url("${moonBackgroundUrl}")`   
+        ? `url("${origBackgroundUrl}")` 
+        : `url("${moonBackgroundUrl}")`;
+})
 
 start.addEventListener('click', () => {
     const grid = document.querySelector('.grid');
@@ -26,12 +51,14 @@ start.addEventListener('click', () => {
         doodlerLeftSpace = platforms[0].left;
         doodler.style.left = doodlerLeftSpace + 'px';
         doodler.style.bottom = doodlerBottomSpace + 'px';
+        doodler.style.backgroundImage = persPic;
     }
+
     // Create new platform
     class Platform {
         constructor(newPlatBottom) {
             this.bottom = newPlatBottom;
-            this.left = Math.random() * 315;
+            this.left = Math.random() * 300;
             this.visual = document.createElement('div');
 
             const visual = this.visual;
@@ -55,7 +82,7 @@ start.addEventListener('click', () => {
         // Moving platforms down till doodler alive
         if (doodlerBottomSpace > 50) {
             platforms.forEach(platform => {
-                platform.bottom -=4;
+                platform.bottom -=5;
                 let visual = platform.visual;
                 visual.style.bottom = platform.bottom + 'px';
                 // Remove bottom platform
@@ -90,7 +117,7 @@ start.addEventListener('click', () => {
         clearInterval(upTimerId);
 
         downTimerId = setInterval(() => {
-            doodlerBottomSpace -= 5;
+            doodlerBottomSpace -= 8;
             doodler.style.bottom = doodlerBottomSpace + 'px';
             if (doodlerBottomSpace <= 0) {
                 gameOver();
@@ -128,35 +155,39 @@ start.addEventListener('click', () => {
     const moveRight = () => {
         // Stop moving left
         if (isGoingLeft) {
-            clearInterval(leftTimerId);
             isGoingLeft = false;
+            clearInterval(leftTimerId);
         }
         // Start moving right
         isGoingRight = true;
+        // Clear prevent right Interval
+        clearInterval(rightTimerId);
         rightTimerId = setInterval(() => {
             // Check border
             if (doodlerLeftSpace <= 326) {
                 doodlerLeftSpace +=1;
                 doodler.style.left = doodlerLeftSpace + 'px';
             } else moveLeft();
-        }, 6)
+        }, 1)
     }
 
     const moveLeft = () => {
         // Stop moving right
         if (isGoingRight) {
-            clearInterval(rightTimerId);
             isGoingRight = false;
+            clearInterval(rightTimerId);
         }
         // Start moving left
         isGoingLeft = true;
+        // Clear prevent left Interval
+        clearInterval(leftTimerId);
         leftTimerId = setInterval(() => {
             // Check border
             if (doodlerLeftSpace >= 0) {
                 doodlerLeftSpace -=1;
                 doodler.style.left = doodlerLeftSpace + 'px';
             } else moveRight();
-        }, 6) 
+        }, 1)
     }
     
     const moveStraight = () => {
@@ -182,9 +213,10 @@ start.addEventListener('click', () => {
             createDoodler();
             setInterval(movePlatform, 30);
             jump();
-            document.addEventListener('keyup', control);
+            document.addEventListener('keydown', control);
         }
     }
     // attach to button
     start();
 })
+
